@@ -1,5 +1,5 @@
 import argparse
-from scraper import scrape_reviews
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Scrape SaaS product reviews")
     parser.add_argument("--company", required=True, help="Company name")
@@ -8,15 +8,22 @@ def parse_args():
     parser.add_argument("--end_date", required=True, help="End date YYYY-MM-DD")
     return parser.parse_args()
 
+from scraper import scrape_reviews
+from output import save_to_json
+
 def main():
     args = parse_args()
+
     reviews = scrape_reviews(
         company=args.company,
         source=args.source,
         start_date=args.start_date,
         end_date=args.end_date
     )
-    print(f"Collected {len(reviews)} reviews")
+
+    output_file = save_to_json(reviews, args.company, args.source)
+    print(f"Saved {len(reviews)} reviews to {output_file}")
+
 
 if __name__ == "__main__":
     main()
