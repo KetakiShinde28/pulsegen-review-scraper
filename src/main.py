@@ -1,5 +1,5 @@
 import argparse
-
+from scraper import scrape_reviews
 def parse_args():
     parser = argparse.ArgumentParser(description="Scrape SaaS product reviews")
     parser.add_argument("--company", required=True, help="Company name")
@@ -10,8 +10,13 @@ def parse_args():
 
 def main():
     args = parse_args()
-    print("Inputs received:")
-    print(vars(args))
+    reviews = scrape_reviews(
+        company=args.company,
+        source=args.source,
+        start_date=args.start_date,
+        end_date=args.end_date
+    )
+    print(f"Collected {len(reviews)} reviews")
 
 if __name__ == "__main__":
     main()
