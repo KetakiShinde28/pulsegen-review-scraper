@@ -30,16 +30,17 @@ pulsegen-review-scraper/
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
+```
+## Usage
 
-Usage
-
+```bash
 python src/main.py \
   --company notion \
   --source g2 \
   --start_date 2023-01-01 \
   --end_date 2023-12-31
-
-Command-line Arguments
+```
+## Command-line Arguments
 --company : Name of the company / product
 
 --source : Review source (g2, capterra, trustradius)
@@ -48,29 +49,30 @@ Command-line Arguments
 
 --end_date : End date in YYYY-MM-DD format
 
-Output
+## Output
 
 Reviews are saved as a JSON file in the data/ directory.
 
 File naming format:
-
+```bash
 data/<company>_<source>_reviews.json
+```
 
-Sample Review Object
-
+## Sample Review Object
+```bash
 {
   "title": "Great product",
   "review": "Easy to use and very flexible",
   "date": "2023-05-14",
   "source": "g2"
 }
-
-Notes & Limitations
+```
+## Notes & Limitations
 1. Review platform HTML structures may change over time.
 
 2. Some queries may return empty results depending on data availability and selected date range.
 
 3. This script is intended for assignment and evaluation purposes.
 
-Bonus
+## Bonus
 A third SaaS review source (TrustRadius) has been integrated using the same interface and workflow as G2 and Capterra.
