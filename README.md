@@ -6,6 +6,7 @@ A Python-based CLI tool to scrape SaaS product reviews from multiple platforms w
 
 ## Project Structure
 
+```bash
 pulsegen-review-scraper/
 │
 ├── src/
@@ -20,7 +21,7 @@ pulsegen-review-scraper/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-
+```
 
 ---
 
